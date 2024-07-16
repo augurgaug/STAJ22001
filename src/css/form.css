@@ -1,0 +1,14 @@
+.form{
+    background-color: #d93f41  ;
+    border-radius: 12px;
+    padding-top: 30px;
+    width: 50%;
+    min-width: 300px;
+    margin: auto;
+    margin-bottom: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+height: 400px;}
