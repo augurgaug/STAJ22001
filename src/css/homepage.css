@@ -1,0 +1,26 @@
+
+  
+  .icerik {
+    display: flex;
+  }
+  
+ 
+  .bg{background-color: white;
+    height: 100vh;
+  }
+  
+  .hmpage-1{
+
+    width: 100%;
+    background-color: rgb(227, 225, 225);
+    padding:50px 25px;
+    text-align: center;
+    height:200px;
+    color: rgb(22, 22, 23);
+    font-size: 60px;
+  }
+ 
+  
+
+
+      .hmpg{margin: auto;}

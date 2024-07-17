@@ -1,4 +1,4 @@
-button{
+/* button{
     margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -12,10 +12,8 @@ button{
     color: white;
     font-size: 16px;
     font-weight: "bold";
-    /* border: none; */
     border: 2px solid bisque;
 
-/* cursor: pointer; */
 }
   :hover.button{
     background-color: rgb(237, 25, 25);
@@ -29,4 +27,4 @@ button{
 
 
 
-  
+   */

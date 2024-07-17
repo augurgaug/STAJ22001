@@ -1,12 +1,39 @@
+import React, { useState } from 'react';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+import UserList from '../components/UserList';
+import UserPassword from '../components/UserPassword';
+import '../css/homepage.css';
 
-import React from 'react';
+const HomePage = () => {
+  const [activeComponent, setActiveComponent] = useState();
 
-const Homepage = () => {
+  const handleClick = (component) => {
+    setActiveComponent(component);
+  };
+
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case 'kullanici-list':
+        return <UserList />;
+      case 'kullanici-sifre':
+        return <UserPassword />;
+      default:
+        return <div className='hmpage-1'>Hoşgeldiniz!</div>;
+    }
+  };
+
   return (
-    <div>
-      <h2>Homepage</h2>
+    <div className='bg'>
+      <Navbar />
+      <div className="icerik">
+        <Sidebar onClick={handleClick} />
+        <div className='hmpg' >
+          {renderComponent()}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Homepage;
+export default HomePage;

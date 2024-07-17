@@ -1,0 +1,40 @@
+.navbar {
+  position: fixed;
+  top:0px;
+  left: 250px;
+  width: calc(100% - 250px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-title {
+    font-size: 30px;
+    color: black;
+  }
+  
+  .navbar-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .username {
+   margin-right: 10px;
+   margin-left: 15px;
+  }
+  
+  .profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px black solid;
+  }
+  
+  .profile-picture img {
+    width: 100%;
+  }
+  

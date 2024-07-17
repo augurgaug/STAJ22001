@@ -4,17 +4,24 @@ import Login from './screens/Login';
 import Register from './screens/Register';
 import ForgotPassword from './screens/ForgotPassword';
 import Homepage from './screens/HomePage';
-
+import UserList from './components/UserList';
+import UserPassword from './components/UserPassword';
 const App = () => {
   return (
+    <div>
+      <main>
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpass" element={<ForgotPassword />} />
         <Route path="/homepage" element={<Homepage />} />
+        <Route path="/a" element={<UserList />} />
+        <Route path="/b" element={<UserPassword />} />
       </Routes>
     </Router>
+    </main>
+    </div>
   );
 };
 
