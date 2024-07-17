@@ -32,8 +32,9 @@ body {
     padding-top: 15%;
     background-color:rgb(228, 225, 221);
     border-radius: 8px 0px 0px 8px;
-    min-height: 100%;
+    width: 50%;
     box-sizing: border-box;
+    height: 600px;
 
     
   }
@@ -99,9 +100,14 @@ margin-top: 15px;}
 
 
 
+
+
 .form-reg2{padding-top: 45%;
 padding-bottom: 0px;
 border-radius: 0px 8px 8px 0px;
+min-height: 600px;
+max-height: 372.5px;
+box-sizing: border-box;
 
 }
 
@@ -134,14 +140,20 @@ font-size: 30px;
     margin-bottom: 0px;
    
   }
+
+  :hover.buttonreg2{
+    background-color: #fa4f4f;
+    color: bisque;
+  }
+
+
+
   .buttonreg2:active {
     background-color: rgb(198, 35, 35);
     color: black;
   }
   
-  :hover.buttonreg2{
-    background-color: #fa4f4f;
-  }
+
   
 
 
