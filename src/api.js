@@ -25,12 +25,3 @@ export const loginUser = async (user) => {
   }
 };
 
-export const forgotUser = async (user) => {
-  try {
-    const response = await axios.post(`${API_URL}/users/forgot`, user);
-    return response.data;
-  } catch (error) {
-    console.error('Şifre sıfırlanırken hata oluştu:', error);
-    throw error;
-  }
-};

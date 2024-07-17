@@ -25,7 +25,7 @@ const Login = () => {
     if (!user.username || !user.password) {
       setError("Tüm kutuları doldurun");
     
-    //   setTimeout(() => setError(""), 3000);
+       setTimeout(() => setError(""), 3000);
     } else {
       try {
         const loggedInUser = await loginUser(user);
@@ -34,7 +34,7 @@ const Login = () => {
         navigate("/homepage");
       } catch (error) {
         setError("Kullanıcı adı veya parola hatalı");
-        // setTimeout(() => setError(""), 3000);
+        setTimeout(() => setError(""), 3000);
       }
     }
   };
@@ -65,7 +65,7 @@ const Login = () => {
               </p>
               <p className='p-log'>or use your account</p>
               <Input className=" input " type="text" value={user.username} placeHolder="Kullanıcı Adı" onChange={handleChange} /><br />
-              <Input className=" input" type="password" value={user.password} placeHolder="Şifre" onChange={handleChange} />
+              <Input className=" input input-top" type="password" value={user.password} placeHolder="Şifre" onChange={handleChange} />
               <Link to="/forgotpass" className='forgot'>Şifremi Unuttum</Link>
               <Button type="button" className="buttonlog " onClick={handleClick} label="GİRİŞ YAP" />
             </div>

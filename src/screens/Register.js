@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import Form from '../components/Form';
@@ -38,13 +37,22 @@ console.log(register);}
 const handleClick = async () => {
     if ( !register.username|| !register.password || !register.password1) {
       setError("Tüm kutuları doldurun");
+      setTimeout(() => setError(""), 3000);
+
 
     } 
     else if ( register.password.length<6) {
     
       setError("Şifre minimum 6 haneli olmak zorunda");
+      setTimeout(() => setError(""), 3000);
+
+      
 
     } 
+
+
+
+
     else if (register.password ===register.password1) {
       try {
         const response = await createUser({
@@ -56,14 +64,18 @@ const handleClick = async () => {
           
         });
         console.log(response); 
-        // setUser({ name: register.name, password: register.password });
+        
         navigate("/");
       } catch (error) {
-        console.error('Error creating user:', error);
+        setError('Kullanıcı zaten mevcut!', error);
+        setTimeout(() => setError(""), 3000);
+
       }
       } 
     else {   
       setError("Şifreler eşleşmiyor");
+      setTimeout(() => setError(""), 3000);
+
     }
   };
   return (
