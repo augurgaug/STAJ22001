@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import UserList from '../components/UserList';
-import UserPassword from '../components/UserPassword';
+import Cari from '../components/Cari';
+import Stock from '../components/Stock';
 import '../css/homepage.css';
 
 const HomePage = () => {
@@ -12,25 +13,50 @@ const HomePage = () => {
     setActiveComponent(component);
   };
 
+
+
+
+
   const renderComponent = () => {
     switch (activeComponent) {
       case 'kullanici-list':
         return <UserList />;
-      case 'kullanici-sifre':
-        return <UserPassword />;
+        case 'cari':
+          return <Cari />;
+      case 'stok':
+        return <Stock />;
       default:
-        return <div className='hmpage-1'>Hoşgeldiniz!</div>;
+        return <div className='giris'>Hoşgeldinizz</div>;
     }
   };
 
+
+
   return (
-    <div className='bg'>
+    <div className='homepage'>
       <Navbar />
-      <div className="icerik">
-        <Sidebar onClick={handleClick} />
-        <div className='hmpg' >
-          {renderComponent()}
+      <Sidebar onClick={handleClick} />
+
+      <div className="orta">
+      
+        
+        <div className='icerik' >
+        <div className='icerik1' >
+
+        <div className="o-ust">
+        {renderComponent()}
+
+      
         </div>
+     
+       
+
+        </div>
+
+
+
+
+      </div>
       </div>
     </div>
   );

@@ -1,16 +1,34 @@
 import React from 'react';
 import '../css/navbar.css';
+import Button from './Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faHorse, faBars,faEnvelope,faBell} from '@fortawesome/free-solid-svg-icons';
+
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="navbar-title">HomePage</div>
+      <div className='dropdownn'>
+      <div class="dropdown">
+  <button class="btn " type="button" data-bs-toggle="dropdown"  aria-expanded="false">
+ <FontAwesomeIcon icon={faBars} style={{color: "#1859c9",}} />
+  </button>
+  <ul class="dropdown-menu">
+    <li><Button className="dropdown-item" label="a"/></li>
+    <li><Button className="dropdown-item" label="a"/></li>
+    <li><Button className="dropdown-item"label="a" /></li>
+  </ul>
+</div></div>
       <div className="navbar-profile">
-        
+      <Button className="btn"><FontAwesomeIcon  icon={faEnvelope} /></Button>
+      <Button className="btn"><FontAwesomeIcon  icon={faBell} /></Button>
         <div className="profile-picture">
+
+
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppkoKsaYMuIoNLDH7O8ePOacLPG1mKXtEng&s" alt="Profile-picture" />
         </div>
-        <span className="username">Aug Ugurg</span>
+        <span className="username">Uğur Gülsevinç</span>
+   
       </div>
     </nav>
   );

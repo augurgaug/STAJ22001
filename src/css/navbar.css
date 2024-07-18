@@ -4,8 +4,6 @@
   left: 250px;
   width: calc(100% - 250px);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: white;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -15,6 +13,11 @@
     font-size: 30px;
     color: black;
   }
+
+/* .dropdownn{
+  margin-left:-300px;
+  background-color: blue;
+} */
   
   .navbar-profile {
     display: flex;
@@ -23,7 +26,9 @@
   
   .username {
    margin-right: 10px;
-   margin-left: 15px;
+   margin-left: 10px;
+   font-size: large;
+   font-family: Arial, Helvetica, sans-serif;
   }
   
   .profile-picture {
@@ -32,9 +37,10 @@
     border-radius: 15px;
     overflow: hidden;
     border: 1px black solid;
+    margin: 0px 0px 0px 20px;
   }
   
   .profile-picture img {
     width: 100%;
   }
-  
+

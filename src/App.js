@@ -5,7 +5,7 @@ import Register from './screens/Register';
 import ForgotPassword from './screens/ForgotPassword';
 import Homepage from './screens/HomePage';
 import UserList from './components/UserList';
-import UserPassword from './components/UserPassword';
+import Cari from './components/Cari';
 const App = () => {
   return (
     <div>
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="/forgotpass" element={<ForgotPassword />} />
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/a" element={<UserList />} />
-        <Route path="/b" element={<UserPassword />} />
+        <Route path="/b" element={<Cari />} />
       </Routes>
     </Router>
     </main>
