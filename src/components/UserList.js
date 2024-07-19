@@ -7,7 +7,7 @@ const UserList = () => {
       <h2>Kullanıcı Listesi</h2>
      
 
-      <table class="table">
+      <table className="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -16,7 +16,7 @@ const UserList = () => {
       <th scope="col">User Name</th>
     </tr>
   </thead>
-  <tbody class="table-group-divider">
+  <tbody className="table-group-divider">
     <tr>
       <th scope="row">1</th>
       <td>Uğur</td>

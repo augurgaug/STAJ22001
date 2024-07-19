@@ -6,6 +6,7 @@ import ForgotPassword from './screens/ForgotPassword';
 import Homepage from './screens/HomePage';
 import UserList from './components/UserList';
 import Cari from './components/Cari';
+import Customer from './screens/Customer';
 const App = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/a" element={<UserList />} />
         <Route path="/b" element={<Cari />} />
+        <Route path="/c" element={<Customer />} />
       </Routes>
     </Router>
     </main>

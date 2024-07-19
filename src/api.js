@@ -25,3 +25,19 @@ export const loginUser = async (user) => {
   }
 };
 
+
+
+
+export const createCustomer = async (customer) => {
+  try {
+    const response = await axios.post(`${API_URL}/customers`, customer);
+    return response.data;
+  } catch (error) {
+    if (error.response && error.response.status === 409) {
+      throw new Error("müşteri zaten kayıtlı");
+    }
+    console.error('kayıt olurken hata oluştu:', error);
+    throw error;
+  }
+};
+

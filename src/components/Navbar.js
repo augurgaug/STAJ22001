@@ -2,18 +2,18 @@ import React from 'react';
 import '../css/navbar.css';
 import Button from './Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faHorse, faBars,faEnvelope,faBell} from '@fortawesome/free-solid-svg-icons';
+import { faBars,faEnvelope,faBell} from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className='dropdownn'>
-      <div class="dropdown">
-  <button class="btn " type="button" data-bs-toggle="dropdown"  aria-expanded="false">
+      <div className="dropdown">
+  <button className="btn " type="button" data-bs-toggle="dropdown"  aria-expanded="false">
  <FontAwesomeIcon icon={faBars} style={{color: "#1859c9",}} />
   </button>
-  <ul class="dropdown-menu">
+  <ul className="dropdown-menu">
     <li><Button className="dropdown-item" label="a"/></li>
     <li><Button className="dropdown-item" label="a"/></li>
     <li><Button className="dropdown-item"label="a" /></li>

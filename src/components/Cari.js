@@ -7,7 +7,7 @@ const Cari = () => {
     <div className='upasspage'>
     <div className='upass'>
       <h2>Cari</h2>
-      <table class="table">
+      <table className="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -18,7 +18,7 @@ const Cari = () => {
       <th scope="col">Alacak Miktarı ($)</th>
     </tr>
   </thead>
-  <tbody class="table-group-divider">
+  <tbody className="table-group-divider">
     <tr>
       <th scope="row">1</th>
       <td>Hasan</td>

@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar';
 import UserList from '../components/UserList';
 import Cari from '../components/Cari';
 import Stock from '../components/Stock';
+import Customer from './Customer';
 import '../css/homepage.css';
 
 const HomePage = () => {
@@ -25,6 +26,8 @@ const HomePage = () => {
           return <Cari />;
       case 'stok':
         return <Stock />;
+        case 'musteri':
+        return <Customer />;
       default:
         return <div className='giris'>Hoşgeldinizz</div>;
     }

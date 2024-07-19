@@ -7,7 +7,7 @@ const Stock = () => {
       <h2>Stoklar</h2>
      
 
-      <table class="table">
+      <table className="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -16,7 +16,7 @@ const Stock = () => {
       <th scope="col">Stok Adedi</th>
     </tr>
   </thead>
-  <tbody class="table-group-divider">
+  <tbody className="table-group-divider">
     <tr>
       <th scope="row">1</th>
       <td>Laptop</td>
