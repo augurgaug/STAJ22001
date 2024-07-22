@@ -1,20 +1,23 @@
 
   
    .formdiv{
-    padding-top: 12%;
+    padding-top: 20px;
+    
     
         }
 
+        .Form-alan{display: flex;}
+
+
   .form-cust{
     min-width: 500px;
-    max-width: 50%;
+    max-width: 100%;
     border-radius: 12px;
     box-shadow: 5px 20px 10px rgba(0, 0, 0, 0.2);
     align-items: center;
-    flex-direction: column;
+    flex-direction: between;
     height: auto;
     color:white;
-    margin: auto;
 
  
     
@@ -23,10 +26,9 @@
       background-color: #eae3e3  ;
       border-radius: 0px 0px 12px 12px;
       padding:30px 15px;
-      align-items: center;
       flex-direction: column;
       display: flex;
-      height: auto;
+      height: 80vh;
       color:white;
   
   

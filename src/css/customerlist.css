@@ -1,0 +1,80 @@
+
+.custL-card{
+  min-width: 400px;
+
+  border-radius: 12px;
+  box-shadow: 5px 20px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  color:white;
+  margin: auto;
+margin-top: 2%;}
+
+.custL-title{   border-radius: 12px 12px 0px 0px ;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  padding:30px 15px;
+  color:antiquewhite;
+
+background-color:rgb(159, 156, 156) ;
+width: 100%;}
+
+
+.custL-body{
+  background-color: #eae3e3  ;
+  border-radius: 0px 0px 12px 12px;
+  padding:30px 15px;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  height: auto;
+  color:white;
+  text-align: center;
+
+
+
+  
+  }
+
+
+
+
+
+
+
+  
+  .custL-button{
+    background-color: grey;
+    border: none;
+    border-radius: 8px;
+    padding: 0px 20px;
+    color: bisque;
+  }
+  :hover.custL-button{
+    background-color: lightgray;
+    color: black;
+  }
+ :active.custL-button{
+    background-color: rgb(19, 29, 39);
+    color: white;
+  }
+
+  .custL-del-button{
+
+    background-color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 8px;
+    padding: 0px 20px;
+    color: bisque;
+  }
+  :hover.custL-del-button{
+    background-color: rgb(186, 45, 45);
+    color: black;
+  }
+ :active.custL-del-button{
+    background-color: rgb(163, 0, 0);
+    color: white;
+  }
+

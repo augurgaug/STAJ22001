@@ -41,3 +41,15 @@ export const createCustomer = async (customer) => {
   }
 };
 
+export const fetchCustomers = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/customers`);
+  
+    return response.data;
+  } catch (error) {
+    console.error('Müşteriler alınırken hata oluştu:', error);
+    throw error;
+  } };
+
+
+

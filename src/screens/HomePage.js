@@ -6,6 +6,7 @@ import Cari from '../components/Cari';
 import Stock from '../components/Stock';
 import Customer from './Customer';
 import '../css/homepage.css';
+import CustomerList from './CustmerList';
 
 const HomePage = () => {
   const [activeComponent, setActiveComponent] = useState();
@@ -22,6 +23,8 @@ const HomePage = () => {
     switch (activeComponent) {
       case 'kullanici-list':
         return <UserList />;
+        case 'musteri-list':
+          return <CustomerList />;
         case 'cari':
           return <Cari />;
       case 'stok':
