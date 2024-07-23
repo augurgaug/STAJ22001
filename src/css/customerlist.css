@@ -61,20 +61,4 @@ width: 100%;}
     color: white;
   }
 
-  .custL-del-button{
-
-    background-color: rgb(255, 0, 0);
-    border: none;
-    border-radius: 8px;
-    padding: 0px 20px;
-    color: bisque;
-  }
-  :hover.custL-del-button{
-    background-color: rgb(186, 45, 45);
-    color: black;
-  }
- :active.custL-del-button{
-    background-color: rgb(163, 0, 0);
-    color: white;
-  }
-
+  

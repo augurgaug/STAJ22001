@@ -8,6 +8,7 @@ import UserList from './components/UserList';
 import Cari from './components/Cari';
 import Customer from './screens/Customer';
 import CustomerList from './screens/CustmerList';
+import CustomerDetail from './screens/CustomerDetails';
 const App = () => {
   return (
     <div>
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/b" element={<Cari />} />
         <Route path="/c" element={<Customer />} />
         <Route path="/customerList" element={<CustomerList />} />
+        <Route path="/customerDetail/:id" element={<CustomerDetail />} />
       </Routes>
     </Router>
     </main>

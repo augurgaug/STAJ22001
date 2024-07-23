@@ -39,8 +39,8 @@ const CustomerList = () => {
             <th>Ad</th>
             <th>Soyad</th>
             <th>Email</th>
-            <th>Adres</th>
-            <th>Detalar</th>
+            <th>Telefon Numarası</th>
+            <th>Detaylar</th>
             
           </tr>
         </thead>
@@ -51,8 +51,8 @@ const CustomerList = () => {
               <td>{customer.name}</td>
               <td>{customer.lastName}</td>
               <td>{customer.email}</td>
-              <td>{customer.address}</td>
-              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/a`);}} label="DETAILS"></Button></td>
+              <td>{customer.telNo}</td>
+              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/customerDetail/${customer.customerId}`);}} label="DETAILS"></Button></td>
             </tr>
           ))}
         </tbody>

@@ -55,8 +55,7 @@ width: 100%;
 
     .button-cust{
       margin: auto;
-      margin-top: 30px;
-      margin-bottom: 30px;
+      margin-top: 400px;
   
       width: 180px;
       background-color:rgb(159, 156, 156) ;
@@ -83,4 +82,4 @@ width: 100%;
   
   .title-cust{color: white;}
 
-  .error-message{color: white;}
+  .error-message{color: red;}

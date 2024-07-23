@@ -52,4 +52,14 @@ export const fetchCustomers = async () => {
   } };
 
 
+export const fetchCustomerId= async (id) =>{
+try{
+  const response= await axios.get(`${API_URL}/customers/${id}`);
+  return response.data;
+}
+catch(error){
+  return(
+  console.error('Müşteriler alınırken hata oluştu:', error));
+}
 
+}
