@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import { fetchCustomerId } from '../api';
 import '../css/customerdetails.css'
 import Button from '../components/Button';
@@ -48,8 +48,8 @@ a()
 
    
 
-      <Button type="button" className="custUpdate-button" onClick={console.log("a")} label="UPDATE"></Button>
-             <Button type="button" className="custL-del-button" onClick={console.log("a")} label="DELETE"></Button>
+      <Button type="button" className="custUpdate-button" onClick={()=>(console.log("a"))} label="UPDATE"></Button>
+             <Button type="button" className="custL-del-button" onClick={()=>(console.log("a"))} label="DELETE"></Button>
       </div>
       
       </div>

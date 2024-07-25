@@ -49,28 +49,31 @@ width: 100%;
 
     }
  
+.button-div{
 
+  margin-top: 450px;
+  justify-content: space-between;
+  width: 600px;
+  padding: 0px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
   
 
 
     .button-cust{
-      margin: auto;
-      margin-top: 400px;
-  
+  margin: auto;
       width: 180px;
       background-color:rgb(159, 156, 156) ;
-
       padding: 15px;
       border: 2px solid bisque;
       border-radius: 24px;
-      align-items: "center";
       color: white;
-      font-size: 16px;
-      font-weight: "bold";
      
   }
     :hover.button-cust{
-      background-color: rgb(120, 10, 10);
+      background-color: rgb(122, 119, 119);
       color: bisque;
     }
 
@@ -79,6 +82,31 @@ width: 100%;
       color: black;
     }
   
+    .button-cust-delete{
+      margin: auto;
+      width: 180px;
+      background-color:rgb(146, 0, 0) ;
+      padding: 15px;
+      border: 2px solid bisque;
+      border-radius: 24px;
+      color: white;
+     
+  }
+    :hover.button-cust-delete{
+      background-color: rgb(198, 0, 0);
+      color: bisque;
+    }
+
+    .button-cust-delete:active{
+      background-color: rgb(226, 121, 121);
+      color:black;
+    }
+  
+
+
+
+
+
   
   .title-cust{color: white;}
 

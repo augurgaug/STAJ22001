@@ -1,21 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import Form from '../components/Form';
 import "../css/customer.css"
-import { createCustomer } from '../api';
-import { useNavigate } from 'react-router-dom';
+import { createCustomer, deleteCustomer, fetchCustomerId, updateCustomer } from '../api';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Customer = () => {
-
+  const { id } = useParams();
   const [customer, setCustomer] = useState({ name: "", lastName: "", email: "",telNo:"",
     ulke:"", il:"", ilce:"", mahalle:"", sokak:"", binaNo:"",daireNo:"", banka:"", iban:"",
   });
 
 
-
+  const [editMode, setEditMode] = useState(false);
   const [error, setError] = useState("");
-const navigate= useNavigate();
+  const navigate= useNavigate();
+
+
+  const getData = async () => {
+    try {
+      const customerData = await fetchCustomerId(id);
+      setCustomer(customerData);
+    } catch (error) {
+      setError("Müşteri verileri yüklenirken hata oluştu.");
+    }
+  };
+
+
+  useEffect(() => {
+    if (id) {
+      setEditMode(true);
+      getData();
+    }
+  }, [id]);
+
+
+
+
 
 
   const handleChange=(e)=>{
@@ -92,6 +114,28 @@ const handleClick = async () => {
 
     else {
       try {
+        if (editMode) {
+          await updateCustomer(id, 
+            
+            {name: customer.name,
+          lastName: customer.lastName,
+          email: customer.email,
+          telNo: customer.telNo,
+
+
+          ulke: customer.ulke,
+          il: customer.il,
+          ilce: customer.ilce,
+          mahalle: customer.mahalle,
+          sokak: customer.sokak, 
+          binaNo: customer.binaNo,
+          daireNo: customer.daireNo,
+          
+          
+          banka: customer.banka,
+          iban: customer.iban,});
+          alert("Güncelleme Başarılı");
+        } else {
         const response = await createCustomer({
          
           name: customer.name,
@@ -116,15 +160,36 @@ const handleClick = async () => {
         console.log(response); 
         
         alert("kayıt Başarılı");
-       
+      }
       } catch (error) {
         setError('müşteri zaten mevcut!', error);
         setTimeout(() => setError(""), 3000);
 
       }
       } 
-  
+
   };
+
+
+
+  const handleDelete = async () => {
+    if (window.confirm("Bu müşteri kaydını silmek istediğinize emin misiniz?")) {
+      try {
+        await deleteCustomer(id);
+        alert("Müşteri başarıyla silindi");
+        navigate("/homepage/customerList");
+      } catch (error) {
+        setError('Silme işlemi sırasında hata oluştu.');
+        setTimeout(() => setError(""), 3000);
+      }
+    }
+  };
+
+
+
+
+
+
   return (
     
    
@@ -137,7 +202,7 @@ const handleClick = async () => {
         <Form className="form-cust" >
 
           <div className='title-area'>
-        <h2 className='title-cust'>Müşteri Kayıt</h2>
+        <h2 className='title-cust'>{editMode ? 'Müşteri Güncelle' : 'Müşteri Kayıt'}</h2>
         {error && <div className="error-message">{error}</div>}
 
         </div>
@@ -286,8 +351,12 @@ const handleClick = async () => {
           /> 
   
 
+        <div className='button-div'>
+        <Button type="button" className=" button-cust   " label="KAYIT ET" onClick={handleClick} />
 
-          <Button type="button" className=" button-cust   " label="KAYIT ET" onClick={handleClick} />
+        {editMode && <Button type="button" className="button-cust-delete" label="SİL" onClick={handleDelete} />}
+
+        </div>
           </div>
           </div>
           </div>

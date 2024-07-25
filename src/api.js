@@ -63,3 +63,24 @@ catch(error){
 }
 
 }
+
+
+
+export const updateCustomer = async (id, customer) => {
+  try {
+    const response = await axios.put(`${API_URL}/customers/${id}`, customer);
+    return response.data;
+  } catch (error) {
+    console.error('Müşteri güncellenirken hata oluştu:', error);
+    throw error;
+  }
+};
+
+export const deleteCustomer = async (id) => {
+  try {
+    await axios.delete(`${API_URL}/customers/${id}`);
+  } catch (error) {
+    console.error('Müşteri silinirken hata oluştu:', error);
+    throw error;
+  }
+};

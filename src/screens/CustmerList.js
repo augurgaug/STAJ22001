@@ -52,7 +52,7 @@ const CustomerList = () => {
               <td>{customer.lastName}</td>
               <td>{customer.email}</td>
               <td>{customer.telNo}</td>
-              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/customerDetail/${customer.customerId}`);}} label="DETAILS"></Button></td>
+              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/customer/${customer.customerId}`);}} label="DETAILS"></Button></td>
             </tr>
           ))}
         </tbody>
