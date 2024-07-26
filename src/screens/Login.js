@@ -21,6 +21,10 @@ const Login = () => {
         setUser({...user, password: e.target.value});
     console.log(user);}
   };
+
+
+
+
   const handleClick = async () => {
     if (!user.username || !user.password) {
       setError("Tüm kutuları doldurun");
@@ -30,7 +34,7 @@ const Login = () => {
       try {
         const loggedInUser = await loginUser(user);
         console.log(loggedInUser);
-       
+        localStorage.setItem('username', user.username);
         navigate("/homepage");
       } catch (error) {
         setError("Kullanıcı adı veya parola hatalı");

@@ -2,28 +2,30 @@ import React, { useEffect, useState } from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import Form from '../components/Form';
-import "../css/customer.css"
-import { createCustomer, deleteCustomer, fetchCustomerId, updateCustomer } from '../api';
+import "../css/cari.css"
+import { createCari, deleteCari, fetchCariId, updateCari } from '../api';
 import { useNavigate, useParams } from 'react-router-dom';
-
-const Customer = () => {
+import DeleteModal from '../modals/DeleteModal'
+import AlertModal from '../modals/AlertModal'
+const Cari = () => {
   const { id } = useParams();
-  const [customer, setCustomer] = useState({ name: "", lastName: "", email: "",telNo:"",
+  const [cari, setCari] = useState({ name: "", lastName: "", email: "",telNo:"",
     ulke:"", il:"", ilce:"", mahalle:"", sokak:"", binaNo:"",daireNo:"", banka:"", iban:"",
   });
 
 
   const [editMode, setEditMode] = useState(false);
   const [error, setError] = useState("");
+  const [showDelete, setShowDelete] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const navigate= useNavigate();
-
 
   const getData = async () => {
     try {
-      const customerData = await fetchCustomerId(id);
-      setCustomer(customerData);
+      const cariData = await fetchCariId(id);
+      setCari(cariData);
     } catch (error) {
-      setError("Müşteri verileri yüklenirken hata oluştu.");
+      setError("Cari verileri yüklenirken hata oluştu.");
     }
   };
 
@@ -44,53 +46,53 @@ const Customer = () => {
         
   
    if(e.target.name==="name"){
-    setCustomer({...customer, name: e.target.value});
-console.log(customer);}
+    setCari({...cari, name: e.target.value});
+console.log(cari);}
 
     
     else if(e.target.name==="lastName"){
-        setCustomer({...customer, lastName: e.target.value});
-    console.log(customer);}
+        setCari({...cari, lastName: e.target.value});
+    console.log(cari);}
    
     else if(e.target.name==="telNo"){
-      setCustomer({...customer, telNo: e.target.value});
-  console.log(customer);}
+      setCari({...cari, telNo: e.target.value});
+  console.log(cari);}
     else if (e.target.name==="email") {
-        setCustomer({...customer, email: e.target.value});
-    console.log(customer);}
+        setCari({...cari, email: e.target.value});
+    console.log(cari);}
 
 
 
 
     else if(e.target.name==="ulke"){
-      setCustomer({...customer, ulke: e.target.value});
-  console.log(customer);}
+      setCari({...cari, ulke: e.target.value});
+  console.log(cari);}
   else if(e.target.name==="il"){
-      setCustomer({...customer, il: e.target.value});
-  console.log(customer);}
+      setCari({...cari, il: e.target.value});
+  console.log(cari);}
   else if(e.target.name==="ilce"){
-    setCustomer({...customer, ilce: e.target.value});
-console.log(customer);}
+    setCari({...cari, ilce: e.target.value});
+console.log(cari);}
   else if (e.target.name==="mahalle") {
-      setCustomer({...customer, mahalle: e.target.value});
-  console.log(customer);}
+      setCari({...cari, mahalle: e.target.value});
+  console.log(cari);}
   else if(e.target.name==="sokak"){
-    setCustomer({...customer, sokak: e.target.value});
-console.log(customer);}
+    setCari({...cari, sokak: e.target.value});
+console.log(cari);}
 else if(e.target.name==="bina"){
-  setCustomer({...customer, binaNo: e.target.value});
-console.log(customer);}
+  setCari({...cari, binaNo: e.target.value});
+console.log(cari);}
 else if (e.target.name==="daire") {
-    setCustomer({...customer, daireNo: e.target.value});
-console.log(customer);}
+    setCari({...cari, daireNo: e.target.value});
+console.log(cari);}
 
 
 else if(e.target.name==="banka"){
-  setCustomer({...customer, banka: e.target.value});
-console.log(customer);}
+  setCari({...cari, banka: e.target.value});
+console.log(cari);}
 
-else {setCustomer({...customer, iban:e.target.value});
-console.log(customer);}
+else {setCari({...cari, iban:e.target.value});
+console.log(cari);}
 
 }
 
@@ -98,9 +100,10 @@ console.log(customer);}
 
 
 const handleClick = async () => {
-    if ( !customer.name|| !customer.lastName || !customer.email  ||!customer.telNo
-      ||!customer.ulke||!customer.il||!customer.ilce||!customer.mahalle||!customer.sokak
-      ||!customer.binaNo||!customer.daireNo||!customer.banka||!customer.iban ) 
+
+    if ( !cari.name|| !cari.lastName || !cari.email  ||!cari.telNo
+      ||!cari.ulke||!cari.il||!cari.ilce||!cari.mahalle||!cari.sokak
+      ||!cari.binaNo||!cari.daireNo||!cari.banka||!cari.iban ) 
     {
       setError("Tüm kutuları doldurun");
       setTimeout(() => setError(""), 3000);
@@ -115,54 +118,53 @@ const handleClick = async () => {
     else {
       try {
         if (editMode) {
-          await updateCustomer(id, 
+          await updateCari(id, 
             
-            {name: customer.name,
-          lastName: customer.lastName,
-          email: customer.email,
-          telNo: customer.telNo,
+            {name: cari.name,
+          lastName: cari.lastName,
+          email: cari.email,
+          telNo: cari.telNo,
 
 
-          ulke: customer.ulke,
-          il: customer.il,
-          ilce: customer.ilce,
-          mahalle: customer.mahalle,
-          sokak: customer.sokak, 
-          binaNo: customer.binaNo,
-          daireNo: customer.daireNo,
+          ulke: cari.ulke,
+          il: cari.il,
+          ilce: cari.ilce,
+          mahalle: cari.mahalle,
+          sokak: cari.sokak, 
+          binaNo: cari.binaNo,
+          daireNo: cari.daireNo,
           
           
-          banka: customer.banka,
-          iban: customer.iban,});
-          alert("Güncelleme Başarılı");
-        } else {
-        const response = await createCustomer({
+          banka: cari.banka,
+          iban: cari.iban,});
+          setShowAlert(true)   } else {
+        const response = await createCari({
          
-          name: customer.name,
-          lastName: customer.lastName,
-          email: customer.email,
-          telNo: customer.telNo,
+          name: cari.name,
+          lastName: cari.lastName,
+          email: cari.email,
+          telNo: cari.telNo,
 
 
-          ulke: customer.ulke,
-          il: customer.il,
-          ilce: customer.ilce,
-          mahalle: customer.mahalle,
-          sokak: customer.sokak, 
-          binaNo: customer.binaNo,
-          daireNo: customer.daireNo,
+          ulke: cari.ulke,
+          il: cari.il,
+          ilce: cari.ilce,
+          mahalle: cari.mahalle,
+          sokak: cari.sokak, 
+          binaNo: cari.binaNo,
+          daireNo: cari.daireNo,
           
           
-          banka: customer.banka,
-          iban: customer.iban,
+          banka: cari.banka,
+          iban: cari.iban,
 
         });
         console.log(response); 
         
-        alert("kayıt Başarılı");
+        setShowAlert(true) 
       }
       } catch (error) {
-        setError('müşteri zaten mevcut!', error);
+        setError('Cari zaten mevcut!', error);
         setTimeout(() => setError(""), 3000);
 
       }
@@ -173,11 +175,12 @@ const handleClick = async () => {
 
 
   const handleDelete = async () => {
-    if (window.confirm("Bu müşteri kaydını silmek istediğinize emin misiniz?")) {
+  setShowDelete(true)
+
+    if (showDelete) {
       try {
-        await deleteCustomer(id);
-        alert("Müşteri başarıyla silindi");
-        navigate("/homepage/customerList");
+        await deleteCari(id);
+        navigate("/homepage/cariList");
       } catch (error) {
         setError('Silme işlemi sırasında hata oluştu.');
         setTimeout(() => setError(""), 3000);
@@ -202,7 +205,7 @@ const handleClick = async () => {
         <Form className="form-cust" >
 
           <div className='title-area'>
-        <h2 className='title-cust'>{editMode ? 'Müşteri Güncelle' : 'Müşteri Kayıt'}</h2>
+        <h2 className='title-cust'>{editMode ? 'Cari Güncelle' : 'Cari Kayıt'}</h2>
         {error && <div className="error-message">{error}</div>}
 
         </div>
@@ -222,7 +225,7 @@ const handleClick = async () => {
           className=" input " 
             type="text"
             name="name"
-            value={customer.name}
+            value={cari.name}
             placeHolder="Ad"
             onChange={handleChange}
           />
@@ -230,7 +233,7 @@ const handleClick = async () => {
           className=" input" 
             type="text"
             name="lastName"
-            value={customer.lastName}
+            value={cari.lastName}
             placeHolder="Soyad"
             onChange={handleChange}
           /> 
@@ -238,7 +241,7 @@ const handleClick = async () => {
           className="input" 
             type="email"
             name="email"
-            value={customer.email}
+            value={cari.email}
             placeHolder="Email"
             onChange={handleChange}
           />
@@ -246,7 +249,7 @@ const handleClick = async () => {
           className="input" 
             type="tel"
             name="telNo"
-            value={customer.telNo}
+            value={cari.telNo}
             placeHolder="telNo"
             onChange={handleChange}
           />
@@ -268,7 +271,7 @@ const handleClick = async () => {
           className=" input " 
             type="text"
             name="ulke"
-            value={customer.ulke}
+            value={cari.ulke}
             placeHolder="Ülke"
             onChange={handleChange}
           />
@@ -276,7 +279,7 @@ const handleClick = async () => {
           className=" input" 
             type="text"
             name="il"
-            value={customer.il}
+            value={cari.il}
             placeHolder="İl"
             onChange={handleChange}
           /> 
@@ -284,7 +287,7 @@ const handleClick = async () => {
           className="input" 
             type="text"
             name="ilce"
-            value={customer.ilce}
+            value={cari.ilce}
             placeHolder="İlçe"
             onChange={handleChange}
           />
@@ -292,7 +295,7 @@ const handleClick = async () => {
           className="input" 
             type="text"
             name="mahalle"
-            value={customer.mahalle}
+            value={cari.mahalle}
             placeHolder="Mahalle"
             onChange={handleChange}
           />
@@ -300,7 +303,7 @@ const handleClick = async () => {
           className="input" 
             type="text"
             name="sokak"
-            value={customer.sokak}
+            value={cari.sokak}
             placeHolder="Sokak"
             onChange={handleChange}
           />
@@ -308,7 +311,7 @@ const handleClick = async () => {
           className="input" 
             type="text"
             name="bina"
-            value={customer.binaNo}
+            value={cari.binaNo}
             placeHolder="Bina No"
             onChange={handleChange}
           />
@@ -316,7 +319,7 @@ const handleClick = async () => {
           className="input" 
             type="text"
             name="daire"
-            value={customer.daireNo}
+            value={cari.daireNo}
             placeHolder="Daire No"
             onChange={handleChange}
           />
@@ -337,7 +340,7 @@ const handleClick = async () => {
           className=" input " 
             type="text"
             name="banka"
-            value={customer.banka}
+            value={cari.banka}
             placeHolder="Banka"
             onChange={handleChange}
           />
@@ -345,7 +348,7 @@ const handleClick = async () => {
           className=" input" 
             type="text"
             name="iban"
-            value={customer.iban}
+            value={cari.iban}
             placeHolder="İban"
             onChange={handleChange}
           /> 
@@ -363,8 +366,19 @@ const handleClick = async () => {
         </Form>
       </div>
     </div>
+    <DeleteModal
+        showD={showDelete}
+        handleClose={() => setShowDelete(false)}
+        handleConfirm={handleDelete}
+      />
+
+<AlertModal
+        showA={showAlert}
+        handleClose={() => setShowAlert(false)}
+        handleConfirm={handleDelete}
+      />
     </div>
   );
 };
 
-export default Customer;
+export default Cari;

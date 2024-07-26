@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/cari.css'
 
-const Cari = () => {
+const Carii = () => {
   return (
     
     <div className='upasspage'>
@@ -50,4 +50,4 @@ const Cari = () => {
   );
 };
 
-export default Cari;
+export default Carii;

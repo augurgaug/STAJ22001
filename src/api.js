@@ -28,59 +28,84 @@ export const loginUser = async (user) => {
 
 
 
-export const createCustomer = async (customer) => {
+export const createCari = async (cari) => {
   try {
-    const response = await axios.post(`${API_URL}/customers`, customer);
+    const response = await axios.post(`${API_URL}/caris`, cari);
     return response.data;
   } catch (error) {
     if (error.response && error.response.status === 409) {
-      throw new Error("müşteri zaten kayıtlı");
+      throw new Error("Cari zaten kayıtlı");
     }
     console.error('kayıt olurken hata oluştu:', error);
     throw error;
   }
 };
 
-export const fetchCustomers = async () => {
+export const fetchCaris = async () => {
   try {
-    const response = await axios.get(`${API_URL}/customers`);
+    const response = await axios.get(`${API_URL}/caris`);
   
     return response.data;
   } catch (error) {
-    console.error('Müşteriler alınırken hata oluştu:', error);
+    console.error('Cariler alınırken hata oluştu:', error);
     throw error;
   } };
 
 
-export const fetchCustomerId= async (id) =>{
+export const fetchCariId= async (id) =>{
 try{
-  const response= await axios.get(`${API_URL}/customers/${id}`);
+  const response= await axios.get(`${API_URL}/caris/${id}`);
   return response.data;
 }
 catch(error){
   return(
-  console.error('Müşteriler alınırken hata oluştu:', error));
+  console.error('Cariler alınırken hata oluştu:', error));
 }
 
-}
+};
 
 
 
-export const updateCustomer = async (id, customer) => {
+export const updateCari = async (id, cari) => {
   try {
-    const response = await axios.put(`${API_URL}/customers/${id}`, customer);
+    const response = await axios.put(`${API_URL}/caris/${id}`, cari);
     return response.data;
   } catch (error) {
-    console.error('Müşteri güncellenirken hata oluştu:', error);
+    console.error('Cari güncellenirken hata oluştu:', error);
     throw error;
   }
 };
 
-export const deleteCustomer = async (id) => {
+export const deleteCari = async (id) => {
   try {
-    await axios.delete(`${API_URL}/customers/${id}`);
+    await axios.delete(`${API_URL}/caris/${id}`);
   } catch (error) {
-    console.error('Müşteri silinirken hata oluştu:', error);
+    console.error('Cari silinirken hata oluştu:', error);
     throw error;
   }
 };
+
+
+
+export const fetchUsers = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/users`);
+  
+    return response.data;
+  } catch (error) {
+    console.error('kullanıcılar alınırken hata oluştu:', error);
+    throw error;
+  } };
+
+  export const fetchUserId= async (id) =>{
+    try{
+      const response= await axios.get(`${API_URL}/users/${id}`);
+      return response.data;
+    }
+    catch(error){
+      return(
+      console.error('kullanıcı alınırken hata oluştu:', error));
+    }
+    
+    }
+  

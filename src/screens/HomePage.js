@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
-import UserList from '../components/UserList';
-import Cari from '../components/Cari';
+import UserList from './UserList';
+import Carii from '../components/Carii';
 import Stock from '../components/Stock';
-import Customer from './Customer';
+import Cari from './Cari';
+import Register from '../screens/Register'
 import '../css/homepage.css';
-import CustomerList from './CustmerList';
+import CariList from './CariList';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import CustomerDetail from './CustomerDetails';
+import CariDetail from './CariDetails';
 
 const HomePage = () => {
   const location = useLocation();
@@ -42,12 +43,15 @@ const[isOnlyHmpg, setisOnlyHmpg]=useState(false);
        <Routes>
                 <Route path="/userlist" element={<UserList />} />
                 <Route path="/stock" element={<Stock />} />
-
+                <Route path="/userlist/register" element={<Register />} />
+                {/* <Route path="user/:id" element={<Login/>} /> */}
+                
+                <Route path="/carii" element={<Carii />} />
+                <Route path="/cari/:id" element={<Cari />} />
                 <Route path="/cari" element={<Cari />} />
-                <Route path="/customer/:id" element={<Customer />} />
-                <Route path="/customer" element={<Customer />} />
-                <Route path="/customerList" element={<CustomerList />} />
-                <Route path="/customerDetail/:id" element={<CustomerDetail />} />
+                <Route path="/cariList" element={<CariList />} />
+                <Route path="/cariDetail/:id" element={<CariDetail />} />
+                <Route path="/userDetail" element={<UserList />} />
        </Routes>
         </div>
      

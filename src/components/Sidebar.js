@@ -11,8 +11,7 @@ const Sidebar = ({ onClick }) => {
     <div className="sidebar">
       <div className='sidebar-header' onClick={() => navigate('/homepage')}> <FontAwesomeIcon className='icon' icon={faHorse}/>HomePage</div>
       <Button  className='sidebar-button' onClick={() => navigate('/homepage/userlist')} label="Kullanıcı Listesi "><FontAwesomeIcon className='icon' icon={faUser} /> </Button>
-      <Button  className='sidebar-button' onClick={() => navigate('/homepage/customerlist')} label="Müşteri Listesi"><FontAwesomeIcon className='icon' icon={faClipboard} /></Button>
-      <Button  className='sidebar-button' onClick={() => navigate('customer')} label="Müşteri Kayıt "><FontAwesomeIcon className='icon' icon={faUser} /> </Button>
+      <Button  className='sidebar-button' onClick={() => navigate('/homepage/carilist')} label="Cari Listesi"><FontAwesomeIcon className='icon' icon={faClipboard} /></Button>
       <Button  className='sidebar-button' onClick={() => navigate('/homepage/cari')} label="Cari"><FontAwesomeIcon className='icon' icon={faDollarSign} /></Button>
       <Button  className='sidebar-button' onClick={() => navigate('stock')} label="Stok"><FontAwesomeIcon className='icon' icon={faClipboard} /></Button>
 

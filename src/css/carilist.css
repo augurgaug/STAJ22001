@@ -43,6 +43,31 @@ width: 100%;}
 
 
 
+.custR-button{  background-color: rgba(6, 40, 14, 0.458);
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    color: bisque;
+  margin-left: -80%;}
+
+
+  :hover.custR-button{
+    background-color: lightgray;
+    color: black;
+  }
+ :active.custR-button{
+    background-color: rgb(19, 29, 39);
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
 
   
   .custL-button{

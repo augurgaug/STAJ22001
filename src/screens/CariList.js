@@ -1,26 +1,26 @@
 
-import '../css/customerlist.css';
+import '../css/carilist.css';
 import React, { useEffect, useState } from 'react';
-import { fetchCustomers } from '../api';
+import { fetchCaris } from '../api';
 import Button from "../components/Button"
 import { useNavigate } from 'react-router-dom';
 
-const CustomerList = () => {
-  const [customers, setCustomers] = useState([]);
+const CariList = () => {
+  const [caris, setCaris] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getCustomers = async () => {
+    const getCaris = async () => {
       try {
-        const customerData = await fetchCustomers();
-        setCustomers(customerData);
+        const cariData = await fetchCaris();
+        setCaris(cariData);
       } catch (error) {
         setError('hata.');
       }
     };
 
-    getCustomers();
+    getCaris();
   }, []);
 
 
@@ -28,10 +28,13 @@ const CustomerList = () => {
 
   return (
     <div className="custL-card">
-        <div className='custL-title'> <h2>Müşteri Listesi</h2>
+        <div className='custL-title'> <h2>Cari Listesi</h2>
+        <Button  className='custR-button' onClick={() => navigate('/homepage/cari')} label="YENİ "> </Button>
+
         </div>
       {error && <div>{error}</div>}
       <div className='custL-body'>
+        
       <table className='table'>
         <thead>
           <tr>
@@ -45,14 +48,14 @@ const CustomerList = () => {
           </tr>
         </thead>
         <tbody className="table-group-divider">
-          {customers.map((customer) => (
-            <tr key={customer.customerId}>
-              {/* <td>{customer.customerId}</td> */}
-              <td>{customer.name}</td>
-              <td>{customer.lastName}</td>
-              <td>{customer.email}</td>
-              <td>{customer.telNo}</td>
-              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/customer/${customer.customerId}`);}} label="DETAILS"></Button></td>
+          {caris.map((cari) => (
+            <tr key={cari.cariId}>
+              {/* <td>{cari.cariId}</td> */}
+              <td>{cari.name}</td>
+              <td>{cari.lastName}</td>
+              <td>{cari.email}</td>
+              <td>{cari.telNo}</td>
+              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/cari/${cari.cariId}`);}} label="DETAILS"></Button></td>
             </tr>
           ))}
         </tbody>
@@ -62,4 +65,4 @@ const CustomerList = () => {
   );
 };
 
-export default CustomerList;
+export default CariList;
