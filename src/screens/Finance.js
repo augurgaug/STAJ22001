@@ -5,8 +5,8 @@ import { fetchCaris } from '../api';
 import Button from "../components/Button"
 import { useNavigate } from 'react-router-dom';
 
-const CariList = () => {
-  const [caris, setCaris] = useState([]);
+const Finance = () => {
+  const [finances, setFinances] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const CariList = () => {
     const getCaris = async () => {
       try {
         const cariData = await fetchCaris();
-        setCaris(cariData);
+        setFinances(cariData);
       } catch (error) {
         setError('hata.');
       }
@@ -28,9 +28,9 @@ const CariList = () => {
 
   return (
     <div className="custL-card">
-        <Button  className='custR-button' onClick={() => navigate('/homepage/cari')} label="YENİ "> </Button>
+        {/* <Button  className='custR-button' onClick={() => navigate('/homepage/cari')} label="YENİ "> </Button> */}
 
-        <div className='custL-title'> <h2>Cari Listesi</h2>
+        <div className='custL-title'> <h2>FINANCE TABLE</h2>
 
         </div>
       {error && <div>{error}</div>}
@@ -40,23 +40,22 @@ const CariList = () => {
         <thead>
           <tr>
             {/* <th >ID</th> */}
-            <th>Ad</th>
-            <th>Soyad</th>
-            <th>Email</th>
-            <th>Telefon Numarası</th>
-            <th>Detaylar</th>
+            <th>Ad Soyad</th>
+            <th>Borc</th>
+            <th>Alacak</th>
+            <th>İslem</th>
+           
             
           </tr>
         </thead>
         <tbody className="table-group-divider">
-          {caris.map((cari) => (
+          {finances.map((cari) => (
             <tr key={cari.cariId}>
               {/* <td>{cari.cariId}</td> */}
-              <td>{cari.name}</td>
-              <td>{cari.lastName}</td>
-              <td>{cari.email}</td>
-              <td>{cari.telNo}</td>
-              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/cari/${cari.cariId}`);}} label="DETAILS"></Button></td>
+              <td>{cari.name} {cari.lastName}</td>
+              <td>{cari.borc}</td>
+              <td>{cari.alacak}</td>
+              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/financedetail/${cari.cariId}`);}} label="ODEME"></Button></td>
             </tr>
           ))}
         </tbody>
@@ -66,4 +65,4 @@ const CariList = () => {
   );
 };
 
-export default CariList;
+export default Finance;

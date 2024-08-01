@@ -27,8 +27,9 @@ const UserList = () => {
 
   return (
     <div className="custL-card">
-        <div className='custL-title'> <h2>Kullanıcı Listesi</h2>
         <Button  className='custR-button' onClick={() => navigate('register')} label="YENİ "> </Button>
+
+        <div className='custL-title'> <h2>Kullanıcı Listesi</h2>
 
         </div>
       {error && <div>{error}</div>}
@@ -39,7 +40,7 @@ const UserList = () => {
           <tr>
             {/* <th >ID</th> */}
             <th>Kullanıcı Adı</th>
-            <th>Detay</th>
+            {/* <th>Detay</th> */}
            
             
           </tr>
@@ -49,7 +50,7 @@ const UserList = () => {
             <tr key={user.userId}>
               <td>{user.userName}</td>
               
-              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/user/${user.userId}`);}} label="DETAILS"></Button></td>
+              {/* <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/user/${user.userId}`);}} label="DETAILS"></Button></td> */}
             </tr>
           ))}
         </tbody>

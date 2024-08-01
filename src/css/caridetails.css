@@ -4,7 +4,8 @@
     grid-template-columns: repeat(2,50%);
    
 }
-.title{background-color: grey;
+.title{
+  background-color: grey;
     padding: 50px;
     text-align: center;}
 
@@ -12,7 +13,6 @@
     padding: 10px;
    background-color: white;
 }
-
 
 
 

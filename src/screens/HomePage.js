@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import UserList from './UserList';
-import Carii from '../components/Carii';
 import Stock from '../components/Stock';
 import Cari from './Cari';
 import Register from '../screens/Register'
@@ -10,6 +9,8 @@ import '../css/homepage.css';
 import CariList from './CariList';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import CariDetail from './CariDetails';
+import Finance from './Finance';
+import FinanceDetail from './FinanceDetails';
 
 const HomePage = () => {
   const location = useLocation();
@@ -46,12 +47,14 @@ const[isOnlyHmpg, setisOnlyHmpg]=useState(false);
                 <Route path="/userlist/register" element={<Register />} />
                 {/* <Route path="user/:id" element={<Login/>} /> */}
                 
-                <Route path="/carii" element={<Carii />} />
                 <Route path="/cari/:id" element={<Cari />} />
                 <Route path="/cari" element={<Cari />} />
                 <Route path="/cariList" element={<CariList />} />
                 <Route path="/cariDetail/:id" element={<CariDetail />} />
                 <Route path="/userDetail" element={<UserList />} />
+               
+                <Route path="/finance" element={<Finance />} />
+                <Route path="/financedetail/:id" element={<FinanceDetail />} />
        </Routes>
         </div>
      

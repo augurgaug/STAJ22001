@@ -137,7 +137,11 @@ const handleClick = async () => {
           
           banka: cari.banka,
           iban: cari.iban,});
-          setShowAlert(true)   } else {
+          setShowAlert(true) 
+    setTimeout(() =>navigate("/homepage/cariList"), 3000);
+  } 
+          
+          else {
         const response = await createCari({
          
           name: cari.name,
@@ -162,6 +166,8 @@ const handleClick = async () => {
         console.log(response); 
         
         setShowAlert(true) 
+    setTimeout(() =>navigate("/homepage/cariList"), 3000);
+
       }
       } catch (error) {
         setError('Cari zaten mevcut!', error);

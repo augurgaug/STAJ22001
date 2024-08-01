@@ -12,7 +12,6 @@
   
   .modal-area {
     background: white;
-    padding: 20px;
     border-radius: 8px;
     max-width: 500px;
     width: 100%;
@@ -20,10 +19,11 @@
   
   .modal-title {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     color:black;
     background-color: #ccc;
+    border-radius: 8px 8px 0px 0px;
+    padding: 10px;
   }
   
 

@@ -4,7 +4,6 @@
 
   border-radius: 12px;
   box-shadow: 5px 20px 10px rgba(0, 0, 0, 0.2);
-  align-items: center;
   flex-direction: column;
   height: auto;
   color:white;
@@ -26,12 +25,10 @@ width: 100%;}
   background-color: #eae3e3  ;
   border-radius: 0px 0px 12px 12px;
   padding:30px 15px;
-  align-items: center;
   flex-direction: column;
   display: flex;
   height: auto;
   color:white;
-  text-align: center;
 
 
 
@@ -46,9 +43,12 @@ width: 100%;}
 .custR-button{  background-color: rgba(6, 40, 14, 0.458);
     border: none;
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px 40px;
     color: bisque;
-  margin-left: -80%;}
+    margin-left: 90%;
+    margin-bottom: 50px;
+    
+}
 
 
   :hover.custR-button{

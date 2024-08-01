@@ -28,12 +28,12 @@ const DeleteModal = ({ showD, handleClose, handleConfirm }) => {
             <h2>ONAY</h2>
             </div>
             <div className='modal-body'>
-            <p>silmek istediğine emin misin</p>
+            <p>Silmek istediğinize emin misiniz?</p>
             </div>
             <div className='modal-btn'>
-            <Button className="btnYes"  onClick={handleConfirm}>yesss</Button>
+            <Button className="btnYes"  onClick={handleConfirm}>EVET</Button>
 
-            <Button className="btnNo" onClick={handleClose}>nooo</Button>
+            <Button className="btnNo" onClick={handleClose}>HAYIR</Button>
             </div>
 
         </div>

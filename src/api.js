@@ -76,6 +76,18 @@ export const updateCari = async (id, cari) => {
   }
 };
 
+
+export const updateCariFinance = async (id, cari) => {
+  try {
+    const response = await axios.put(`${API_URL}/caris/carii/${id}`, cari);
+    return response.data;
+  } catch (error) {
+    console.error('Cari güncellenirken hata oluştu:', error);
+    throw error;
+  }
+};
+
+
 export const deleteCari = async (id) => {
   try {
     await axios.delete(`${API_URL}/caris/${id}`);
@@ -107,5 +119,4 @@ export const fetchUsers = async () => {
       console.error('kullanıcı alınırken hata oluştu:', error));
     }
     
-    }
-  
+    };
