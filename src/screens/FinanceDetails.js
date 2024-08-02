@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import Form from '../components/Form';
-import {  fetchCariId,updateCariFinance } from '../api';
+import { createFinance, fetchCariId,updateCariFinance } from '../api';
 import { useNavigate, useParams } from 'react-router-dom';
 import AlertModal from '../modals/AlertModal'
 import "../css/financedetail.css"
@@ -20,6 +20,7 @@ const [isAl, setIsAl]= useState();
   const [cari, setCari] = useState({alacak:0,borc:0, tarih: new Date().toLocaleDateString(),odemeTipi:"", odemeMiktari:"", aciklama:""
   });
   const [odemeTip, setOdemeTip]= useState();
+  const financeDate = new Date().toLocaleDateString();
 
 const [odenen, setOdenen]= useState({al:0,yap:0});
 const [girilenMiktar, setGirilenMiktar]= useState();
@@ -111,7 +112,21 @@ const b=parseFloat(cari.alacak)+ parseFloat(odenen.yap)
 
 
 
-     
+      await createFinance( 
+            
+        {
+      
+
+ 
+          CariId: id,
+          tarih: new Date().toLocaleDateString(),
+          odemeTipi: odemeTip,
+          miktar: girilenMiktar,
+          aciklama: cari.aciklama
+
+
+
+});
 
 
 
@@ -248,7 +263,7 @@ const ad= cari.name+"  "+cari.lastName
           className=" input input-fd" 
             type="text"
             name="tarih"
-            value={cari.tarih}
+            value={financeDate}
             placeHolder="alacak"
             onChange={handleChange}
           />
@@ -274,7 +289,7 @@ const ad= cari.name+"  "+cari.lastName
         <option name="nakit-odeme" value="Nakit Ödeme"  >Nakit Ödeme</option>
         <option name="giden-havale" value="Giden Havale" >Giden Havale</option>
         <option name="kredikartı-odeme" value="Kredi Kartı İle Ödeme"  >Kredi Kartı İle Ödeme </option>
-       
+
       </select>
   </div>
 

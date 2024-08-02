@@ -120,3 +120,23 @@ export const fetchUsers = async () => {
     }
     
     };
+
+
+
+
+    
+
+
+
+    export const createFinance = async (finance) => {
+      try {
+        const response = await axios.post(`${API_URL}/finance`, finance);
+        return response.data;
+      } catch (error) {
+        if (error.response && error.response.status === 409) {
+          throw new Error("financet zaten kayıtlı");
+        }
+        console.error('ödeme kayıt edilirken hata oluştuu:', error);
+        throw error;
+      }
+    };
