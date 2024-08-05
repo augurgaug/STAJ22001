@@ -140,3 +140,14 @@ export const fetchUsers = async () => {
         throw error;
       }
     };
+
+
+    export const fetchPayments = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/finance`);
+      
+        return response.data;
+      } catch (error) {
+        console.error('Ödemeler alınırken hata oluştu:', error);
+        throw error;
+      } };

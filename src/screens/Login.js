@@ -7,14 +7,14 @@ import "../css/login.css";
 import { loginUser } from '../api';
 
 const Login = () => {
-  const [user, setUser] = useState({ username: "", password: "" });
+  const [user, setUser] = useState({ user_name: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
 
   const handleChange = (e) => {
     if(e.target.type==="text"){
-        setUser({...user, username: e.target.value});
+        setUser({...user, user_name: e.target.value});
     console.log(user);}
    
     else {
@@ -26,7 +26,7 @@ const Login = () => {
 
 
   const handleClick = async () => {
-    if (!user.username || !user.password) {
+    if (!user.user_name || !user.password) {
       setError("Tüm kutuları doldurun");
     
        setTimeout(() => setError(""), 3000);
@@ -34,7 +34,7 @@ const Login = () => {
       try {
         const loggedInUser = await loginUser(user);
         console.log(loggedInUser);
-        localStorage.setItem('username', user.username);
+        localStorage.setItem('user_name', user.user_name);
         navigate("/homepage");
       } catch (error) {
         setError("Kullanıcı adı veya parola hatalı");
@@ -68,7 +68,7 @@ const Login = () => {
                 <span role="img" aria-label="red circle">⭕</span>
               </p>
               <p className='p-log'>or use your account</p>
-              <Input className=" input " type="text" value={user.username} placeHolder="Kullanıcı Adı" onChange={handleChange} /><br />
+              <Input className=" input " type="text" value={user.user_name} placeHolder="Kullanıcı Adı" onChange={handleChange} /><br />
               <Input className=" input input-top" type="password" value={user.password} placeHolder="Şifre" onChange={handleChange} />
               <Link to="/forgotpass" className='forgot'>Şifremi Unuttum</Link>
               <Button type="button" className="buttonlog " onClick={handleClick} label="GİRİŞ YAP" />

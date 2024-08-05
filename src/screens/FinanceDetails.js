@@ -15,41 +15,45 @@ import "../css/financedetail.css"
 
 const FinanceDetails = () => {
   const { id } = useParams();
-const [isYap, setIsYap]= useState();
-const [isAl, setIsAl]= useState();
-  const [cari, setCari] = useState({alacak:0,borc:0, tarih: new Date().toLocaleDateString(),odemeTipi:"", odemeMiktari:"", aciklama:""
-  });
+  const [isYap, setIsYap]= useState();
+  const [isAl, setIsAl]= useState();
+  const [cari, setCari] = useState([]);
+  const [aciklamaa, setAciklamaa]= useState();
   const [odemeTip, setOdemeTip]= useState();
-  const financeDate = new Date().toLocaleDateString();
-
-const [odenen, setOdenen]= useState({al:0,yap:0});
-const [girilenMiktar, setGirilenMiktar]= useState();
+  const financeDate = new Date()
+  const [odenen, setOdenen]= useState({al:0,yap:0});
+  const [girilenMiktar, setGirilenMiktar]= useState();
 
 
   const [error, setError] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const navigate= useNavigate();
 
-  const getData = async () => {
-    try {
-      const cariData = await fetchCariId(id);
-      setCari(cariData);
-    } catch (error) {
-      setError("Cari verileri yüklenirken hata oluştu.");
-    }
-  };
+ 
 
 
 
 
 
   useEffect(() => {
+
+    const getData = async () => {
+      try {
+        const cariData = await fetchCariId(id);
+        setCari(cariData);
+      } catch (error) {
+        setError("Cari verileri yüklenirken hata oluştu.");
+      }
+    };
+
+
+    
     if (id) {
       getData();
     }
   }, [id]);
 
-
+  
 
 
 
@@ -58,135 +62,111 @@ const [girilenMiktar, setGirilenMiktar]= useState();
         
 
 
-if(e.target.name==="borc"){
-  setCari({...cari, borc: e.target.value});
-console.log(cari);}
+    if(e.target.name==="borc"){
+      setCari({...cari, borc: parseFloat(e.target.value)});
+    console.log(cari);}
+    
+    else if(e.target.name==="alacak"){
+      setCari({...cari, alacak: parseFloat(e.target.value)});
+    console.log(cari);}
+    
+    else if(e.target.name==="odemeYap"){
+        setOdenen({...odenen, yap: parseFloat(e.target.value)});
+        setGirilenMiktar(e.target.value)
+     }
+    
+      else if(e.target.name==="odemeAl"){
 
-else if(e.target.name==="alacak"){
-  setCari({...cari, alacak: e.target.value});
-console.log(cari);}
-
-else if(e.target.name==="odemeYap"){
-    setOdenen({...odenen, yap: e.target.value});
-    setGirilenMiktar(e.target.value)
- }
-
-  else if(e.target.name==="odemeAl"){
-    setOdenen({...odenen, al: e.target.value});
-    setGirilenMiktar(e.target.value)
-
-}
-
-else if(e.target.name==="aciklama"){
-  setCari({...cari, aciklama: e.target.value});
-
-}
-
-}
-
-
-
-
-const handleClick = async () => {
-const a = parseFloat(cari.borc)+ parseFloat(odenen.al)
-const b=parseFloat(cari.alacak)+ parseFloat(odenen.yap)
-   
-      try {
-        {
-          await updateCariFinance(id, 
-            
-            {
-          
-   
-        borc: a,
-      alacak: b,
-      tarih: new Date().toLocaleDateString(),
-    odemeTipi: odemeTip,
-    miktar: girilenMiktar,
-    aciklama: cari.aciklama
+        setOdenen({...odenen, al: parseFloat(e.target.value)});
+        setGirilenMiktar(e.target.value)
+    
+    }
+    
+    else if(e.target.name==="aciklama"){
+      setAciklamaa(e.target.value);
+    
+    }
+    
+    }
     
     
-    
-    })
-      ;
-
-
-
-      await createFinance( 
-            
-        {
-      
-
  
-          CariId: id,
-          tarih: new Date().toLocaleDateString(),
-          odemeTipi: odemeTip,
-          miktar: girilenMiktar,
-          aciklama: cari.aciklama
+
+  const handleClick = async () => {
+    const Decimal = require('decimal.js');
+
+    const a = new Decimal(cari.borc).plus(odenen.al);
+    const b = new Decimal(cari.alacak).plus(odenen.yap);
+    
+    try {
+
+      await updateCariFinance(id, {
+        borc: a,
+        alacak: b,
+    
+      });
+
+      await createFinance(
+        
+        {
 
 
 
-});
+        cari_id: id,
+        tarih: financeDate,
+        odeme_tipi: odemeTip,
+        miktar: parseFloat(girilenMiktar),
+        aciklama: aciklamaa
+      });
 
+      setShowAlert(true);
+      setTimeout(() => navigate("/homepage/finance"), 3000);
+    } catch (error) {
+      setError('Cari zaten mevcut!', error);
+      setTimeout(() => setError(""), 3000);
+    
+    }
 
-
-
-
-
-
-          
-          setShowAlert(true) 
-    setTimeout(() =>navigate("/homepage/finance"), 3000);
-  } 
-  
-          
-         
-      } catch (error) {
-        setError('Cari zaten mevcut!', error);
-        setTimeout(() => setError(""), 3000);
-
-      }
-     
 
   };
   const handleSec =  (e) => {
 
      
-  setOdemeTip(e.target.value)
+    setOdemeTip(e.target.value)
+        
+       if (e.target.value==="Nakit Tahsilat"||e.target.value==="Gelen Havale"||e.target.value==="Pos Tahsilat")
+          { setIsYap(false)
+            setIsAl(true)}
       
-     if (e.target.value==="Nakit Tahsilat"||e.target.value==="Gelen Havale"||e.target.value==="Pos Tahsilat")
-        { setIsYap(false)
-          setIsAl(true)}
-    
-          
-          
-          
-     
-          else if(e.target.value===""){ setIsYap(false)
-            setIsAl(false)}
+            
+            
+            
+       
+            else if(e.target.value===""){ setIsYap(false)
+              setIsAl(false)}
+  
+             else{
+                setIsYap(true)
+                setIsAl(false)
+              }
+          }
+       
+  
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-           else{
-              setIsYap(true)
-              setIsAl(false)
-            }
-        }
-    
-     
-
-    
-
-
-
-
-
-
-
-
- 
-const ad= cari.name+"  "+cari.lastName
+          const ad= cari.name+"  "+cari.last_name
 
   return (
-    
+     
    
     
     <div >
@@ -306,11 +286,13 @@ const ad= cari.name+"  "+cari.lastName
 <Input
 
             className=" input input-fd" 
-              type="text"
+              type="number"
               name="odemeYap"
               value={odenen.yap}
               placeHolder="odeme yapılacak tutar"
               onChange={handleChange}
+              step="0.01"
+
             /></div>} 
 
           
@@ -321,16 +303,24 @@ const ad= cari.name+"  "+cari.lastName
       
               <Input
             className=" input input-fd" 
-              type="text"
+              type="number"
               name="odemeAl"
               value={odenen.al}
               placeHolder="odeme alınacak tutar"
               onChange={handleChange}
-            /> </div>}      
+              step="0.01"
+
+              
+            /> 
+            
+
+            
+            </div>}      
     
     <strong className='strong-fd'> Açıklama: </strong>
     <div>
       <textarea className='textarea-fd' onChange={handleChange} name="aciklama" rows="6" cols="75" placeholder="Açıklama..."></textarea>
+      
           </div>
             
           <div className='button-div-fd'>

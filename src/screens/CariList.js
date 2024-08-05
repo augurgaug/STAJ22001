@@ -36,7 +36,7 @@ const CariList = () => {
       {error && <div>{error}</div>}
       <div className='custL-body'>
         
-      <table className='table'>
+      <table className='table table-striped table-hover'>
         <thead>
           <tr>
             {/* <th >ID</th> */}
@@ -50,13 +50,13 @@ const CariList = () => {
         </thead>
         <tbody className="table-group-divider">
           {caris.map((cari) => (
-            <tr key={cari.cariId}>
+            <tr key={cari.id}>
               {/* <td>{cari.cariId}</td> */}
               <td>{cari.name}</td>
-              <td>{cari.lastName}</td>
+              <td>{cari.last_name}</td>
               <td>{cari.email}</td>
-              <td>{cari.telNo}</td>
-              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/cari/${cari.cariId}`);}} label="DETAILS"></Button></td>
+              <td>{cari.tel_no}</td>
+              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/cari/${cari.id}`);}} label="DETAILS"></Button></td>
             </tr>
           ))}
         </tbody>

@@ -7,7 +7,7 @@ import "../css/register.css"
 import { createUser } from '../api';
 
 const Register = () => {
-  const [register, setRegister] = useState({ username: "", password: "",password1: "" });
+  const [register, setRegister] = useState({ user_name: "", password: "",password1: "" });
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
@@ -16,8 +16,8 @@ const Register = () => {
   const handleChange=(e)=>{
         
   
-   if(e.target.name==="username"){
-    setRegister({...register, username: e.target.value});
+   if(e.target.name==="user_name"){
+    setRegister({...register, user_name: e.target.value});
 console.log(register);}
 
     
@@ -35,7 +35,7 @@ console.log(register);}
 
 
 const handleClick = async () => {
-    if ( !register.username|| !register.password || !register.password1) {
+    if ( !register.user_name|| !register.password || !register.password1) {
       setError("Tüm kutuları doldurun");
       setTimeout(() => setError(""), 3000);
 
@@ -57,7 +57,7 @@ const handleClick = async () => {
       try {
         const response = await createUser({
          
-          username: register.username,
+          user_name: register.user_name,
      
           password: register.password,
 
@@ -97,8 +97,8 @@ const handleClick = async () => {
           <Input
           className=" input " 
             type="text"
-            name="username"
-            value={register.username}
+            name="user_name"
+            value={register.user_name}
             placeHolder="Kullanıcı Adı"
             onChange={handleChange}
           />

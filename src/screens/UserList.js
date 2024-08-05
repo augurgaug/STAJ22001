@@ -35,7 +35,7 @@ const UserList = () => {
       {error && <div>{error}</div>}
       <div className='custL-body'>
         
-      <table className='table'>
+      <table className='table table-striped table-light table-hover'>
         <thead>
           <tr>
             {/* <th >ID</th> */}
@@ -47,10 +47,10 @@ const UserList = () => {
         </thead>
         <tbody className="table-group-divider">
           {users.map((user) => (
-            <tr key={user.userId}>
-              <td>{user.userName}</td>
+            <tr key={user.id}>
+              <td>{user.user_name}</td>
               
-              {/* <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/user/${user.userId}`);}} label="DETAILS"></Button></td> */}
+              {/* <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/user/${user.id}`);}} label="DETAILS"></Button></td> */}
             </tr>
           ))}
         </tbody>

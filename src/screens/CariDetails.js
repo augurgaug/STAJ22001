@@ -34,15 +34,15 @@ a()
 
       <div className='item item1'>
         <p> <strong>Ad:</strong> {cari.name}</p>
-        <p> <strong>Soyad:</strong> {cari.lastName}</p>
+        <p> <strong>Soyad:</strong> {cari.last_name}</p>
         <p> <strong>Email:</strong> {cari.email}</p>
-        <p> <strong>Telefon Numarası:</strong> {cari.telNo}</p>
+        <p> <strong>Telefon Numarası:</strong> {cari.tel_no}</p>
        
         
         
       </div>
       <div className='item item2'>
-      <p> <strong>Adres: </strong>{cari.mahalle} mah. {cari.sokak} sk. no:{cari.binaNo} daire:{cari.daireNo}    {cari.ulke}/{cari.il}/{cari.ilce}</p>
+      <p> <strong>Adres: </strong>{cari.mahalle} mah. {cari.sokak} sk. no:{cari.bina_no} daire:{cari.daire_no}    {cari.ulke}/{cari.il}/{cari.ilce}</p>
       <p> <strong>Banka: </strong>{cari.banka} </p>
       <p> <strong>İban: </strong>{cari.iban} </p>
 

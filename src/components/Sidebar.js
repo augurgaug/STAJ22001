@@ -13,6 +13,7 @@ const Sidebar = ({ onClick }) => {
       <Button  className='sidebar-button' onClick={() => navigate('/homepage/userlist')} label="Kullanıcı Listesi "><FontAwesomeIcon className='icon' icon={faUser} /> </Button>
       <Button  className='sidebar-button' onClick={() => navigate('/homepage/carilist')} label="Cari Listesi"><FontAwesomeIcon className='icon' icon={faClipboard} /></Button>
       <Button  className='sidebar-button' onClick={() => navigate('/homepage/finance')} label="Finans Tablosu"><FontAwesomeIcon className='icon' icon={faDollarSign} /></Button>
+      <Button  className='sidebar-button' onClick={() => navigate('/homepage/payments')} label="Ödemeler"><FontAwesomeIcon className='icon' icon={faDollarSign} /></Button>
       <Button  className='sidebar-button' onClick={() => navigate('stock')} label="Stok"><FontAwesomeIcon className='icon' icon={faClipboard} /></Button>
 
     </div>

@@ -11,6 +11,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import CariDetail from './CariDetails';
 import Finance from './Finance';
 import FinanceDetail from './FinanceDetails';
+import Payments from './Payments';
 
 const HomePage = () => {
   const location = useLocation();
@@ -55,6 +56,7 @@ const[isOnlyHmpg, setisOnlyHmpg]=useState(false);
                
                 <Route path="/finance" element={<Finance />} />
                 <Route path="/financedetail/:id" element={<FinanceDetail />} />
+                <Route path="/payments" element={<Payments />} />
        </Routes>
         </div>
      

@@ -7,7 +7,7 @@ const Stock = () => {
       <h2>Stoklar</h2>
      
 
-      <table className="table">
+      <table className="table table-striped table-primary table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>

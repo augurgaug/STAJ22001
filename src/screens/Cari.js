@@ -9,8 +9,8 @@ import DeleteModal from '../modals/DeleteModal'
 import AlertModal from '../modals/AlertModal'
 const Cari = () => {
   const { id } = useParams();
-  const [cari, setCari] = useState({ name: "", lastName: "", email: "",telNo:"",
-    ulke:"", il:"", ilce:"", mahalle:"", sokak:"", binaNo:"",daireNo:"", banka:"", iban:"",
+  const [cari, setCari] = useState({ name: "", last_name: "", email: "",tel_no:"",
+    ulke:"", il:"", ilce:"", mahalle:"", sokak:"", bina_no:"",daire_no:"", banka:"", iban:"",
   });
 
 
@@ -51,11 +51,11 @@ console.log(cari);}
 
     
     else if(e.target.name==="lastName"){
-        setCari({...cari, lastName: e.target.value});
+        setCari({...cari, last_name: e.target.value});
     console.log(cari);}
    
     else if(e.target.name==="telNo"){
-      setCari({...cari, telNo: e.target.value});
+      setCari({...cari, tel_no: e.target.value});
   console.log(cari);}
     else if (e.target.name==="email") {
         setCari({...cari, email: e.target.value});
@@ -80,10 +80,10 @@ console.log(cari);}
     setCari({...cari, sokak: e.target.value});
 console.log(cari);}
 else if(e.target.name==="bina"){
-  setCari({...cari, binaNo: e.target.value});
+  setCari({...cari, bina_no: e.target.value});
 console.log(cari);}
 else if (e.target.name==="daire") {
-    setCari({...cari, daireNo: e.target.value});
+    setCari({...cari, daire_no: e.target.value});
 console.log(cari);}
 
 
@@ -101,9 +101,9 @@ console.log(cari);}
 
 const handleClick = async () => {
 
-    if ( !cari.name|| !cari.lastName || !cari.email  ||!cari.telNo
+    if ( !cari.name|| !cari.last_name || !cari.email  ||!cari.tel_no
       ||!cari.ulke||!cari.il||!cari.ilce||!cari.mahalle||!cari.sokak
-      ||!cari.binaNo||!cari.daireNo||!cari.banka||!cari.iban ) 
+      ||!cari.bina_no||!cari.daire_no||!cari.banka||!cari.iban ) 
     {
       setError("Tüm kutuları doldurun");
       setTimeout(() => setError(""), 3000);
@@ -121,9 +121,9 @@ const handleClick = async () => {
           await updateCari(id, 
             
             {name: cari.name,
-          lastName: cari.lastName,
+          last_name: cari.last_name,
           email: cari.email,
-          telNo: cari.telNo,
+          tel_no: cari.tel_no,
 
 
           ulke: cari.ulke,
@@ -131,8 +131,8 @@ const handleClick = async () => {
           ilce: cari.ilce,
           mahalle: cari.mahalle,
           sokak: cari.sokak, 
-          binaNo: cari.binaNo,
-          daireNo: cari.daireNo,
+          bina_no: cari.bina_no,
+          daire_no: cari.daire_no,
           
           
           banka: cari.banka,
@@ -145,9 +145,9 @@ const handleClick = async () => {
         const response = await createCari({
          
           name: cari.name,
-          lastName: cari.lastName,
+          last_name: cari.last_name,
           email: cari.email,
-          telNo: cari.telNo,
+          tel_no: cari.tel_no,
 
 
           ulke: cari.ulke,
@@ -155,8 +155,8 @@ const handleClick = async () => {
           ilce: cari.ilce,
           mahalle: cari.mahalle,
           sokak: cari.sokak, 
-          binaNo: cari.binaNo,
-          daireNo: cari.daireNo,
+          bina_no: cari.bina_no,
+          daire_no: cari.daire_no,
           
           
           banka: cari.banka,
@@ -239,7 +239,7 @@ const handleClick = async () => {
           className=" input" 
             type="text"
             name="lastName"
-            value={cari.lastName}
+            value={cari.last_name}
             placeHolder="Soyad"
             onChange={handleChange}
           /> 
@@ -255,7 +255,7 @@ const handleClick = async () => {
           className="input" 
             type="tel"
             name="telNo"
-            value={cari.telNo}
+            value={cari.tel_no}
             placeHolder="telNo"
             onChange={handleChange}
           />
@@ -317,7 +317,7 @@ const handleClick = async () => {
           className="input" 
             type="text"
             name="bina"
-            value={cari.binaNo}
+            value={cari.bina_no}
             placeHolder="Bina No"
             onChange={handleChange}
           />
@@ -325,7 +325,7 @@ const handleClick = async () => {
           className="input" 
             type="text"
             name="daire"
-            value={cari.daireNo}
+            value={cari.daire_no}
             placeHolder="Daire No"
             onChange={handleChange}
           />

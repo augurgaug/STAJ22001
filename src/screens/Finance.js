@@ -36,7 +36,7 @@ const Finance = () => {
       {error && <div>{error}</div>}
       <div className='custL-body'>
         
-      <table className='table'>
+      <table className='table table-striped table-hover'>
         <thead>
           <tr>
             {/* <th >ID</th> */}
@@ -50,12 +50,12 @@ const Finance = () => {
         </thead>
         <tbody className="table-group-divider">
           {finances.map((cari) => (
-            <tr key={cari.cariId}>
+            <tr key={cari.id}>
               {/* <td>{cari.cariId}</td> */}
-              <td>{cari.name} {cari.lastName}</td>
+              <td>{cari.name} {cari.last_name}</td>
               <td>{cari.borc}</td>
               <td>{cari.alacak}</td>
-              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/financedetail/${cari.cariId}`);}} label="ODEME"></Button></td>
+              <td><Button type="button" className="custL-button" onClick={()=>{ navigate(`/homepage/financedetail/${cari.id}`);}} label="ODEME"></Button></td>
             </tr>
           ))}
         </tbody>
